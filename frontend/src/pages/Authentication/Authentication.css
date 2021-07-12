@@ -1,0 +1,63 @@
+.landing-page {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.introduction {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-statement {
+  width: 60%;
+  font-size: 24px;
+  margin: 2rem 0;
+}
+
+.account {
+  margin: 2rem 0 0.5rem 0;
+}
+
+button {
+  font-family: "Acme", sans-serif;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #000;
+}
+
+
+.introduction_image {
+    width: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .landing-page {
+    position: absolute;
+    display: block;
+  }
+  .introduction {
+    width: 100%;
+    height: 100vh;
+  }
+  .landing-statement {
+    width: 70%;
+  }
+  .introduction_image {
+    height: 100vh;
+  }
+}

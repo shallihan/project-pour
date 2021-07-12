@@ -1,0 +1,21 @@
+.full-log__container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  a {
+    margin-right: 1rem;
+  }
+  button {
+    margin-right: 1rem;
+  }
+  .full-log__form-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+

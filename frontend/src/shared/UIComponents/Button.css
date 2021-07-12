@@ -1,0 +1,62 @@
+.button {
+  font-family: "Acme", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px black solid;
+  text-align: center;
+  line-height: 23px;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background-color: #f4f3f0;
+  opacity: 30%;
+  color: #000;
+  cursor: not-allowed;
+}
+
+.button:visited {
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.button:hover,
+.button:active {
+  text-decoration: none;
+  background-color: #000;
+  color: #f4f3f0;
+}
+
+.button--inverse {
+  background: #000;
+  cursor: pointer;
+  color: #f4f3f0;
+}
+
+.button--inverse:hover,
+.button--inverse:active {
+    background: transparent;
+    border: 1px solid #000;
+    color: #000;
+  }
+
+.button--small {
+  font-size: 0.8rem;
+}
+
+.button--big {
+  font-size: 1.5rem;
+}
+
+

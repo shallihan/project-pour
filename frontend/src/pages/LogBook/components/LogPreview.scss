@@ -1,0 +1,30 @@
+.log-preview__container {
+  .log-preview__ranking {
+    width: 20px;
+  }
+  p {
+    width: 100px;
+  }
+}
+
+.log-preview__container,
+li {
+  list-style: none;
+  border: 1px solid black;
+  margin: 0.75rem 0;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  transition: color 0.5s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+
+.log-preview__container:hover {
+  background-color: black;
+  color: #f4f3f0;
+}
+
+.log-preview__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

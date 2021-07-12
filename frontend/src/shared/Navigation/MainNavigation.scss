@@ -1,0 +1,44 @@
+.main-navigation__title {
+  color: white;
+  font-family: "EB Garamond", serif;
+  font-size: 3rem;
+  a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    line-height: 23px;
+  }
+  h1 {
+    position: relative;
+  }
+}
+
+.main-navigation__navigation-btn {
+  a {
+    font-family: "Work Sans", sans-serif;
+    text-decoration: none;
+    color: #000;
+  }
+  button {
+    font-family: "Work Sans", sans-serif;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  .button:hover,
+  .button:active {
+    text-decoration: none;
+    background-color: transparent;
+    color: #000;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .log-book__link {
+    display: none;
+  }
+}

@@ -1,10 +1,9 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import Authentication from "./pages/Authentication/Authentication";
-import LogBook from "./pages/LogBook/page/LogBook";
-import NewEntry from "./pages/NewEntry/NewEntry";
 import MainNavigation from "./shared/Navigation/MainNavigation";
 import UserLanding from "./pages/UserLanding/UserLanding";
+import LoadingSpinner from "./shared/UIComponents/LoadingSpinner";
 import { AuthenticationContext } from "./shared/util/authentication-context";
 import {
   BrowserRouter as Router,
@@ -12,8 +11,13 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-import IndividualEntry from "./pages/IndividualEntry/IndividualEntry";
-import './shared/styles/app.scss';
+import "./shared/styles/app.scss";
+
+const LogBook = React.lazy(() => import("./pages/LogBook/page/LogBook"));
+const NewEntry = React.lazy(() => import("./pages/NewEntry/NewEntry"));
+const IndividualEntry = React.lazy(() =>
+  import("./pages/IndividualEntry/IndividualEntry")
+);
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,21 +41,21 @@ function App() {
         <MainNavigation />
         <main>
           <AnimatePresence>
-          <Switch>
-            <Route path="/logbook" exact>
-              <UserLanding />
-            </Route>
-            <Route path="/logbook/:uid" exact>
-              <LogBook />
-            </Route>
-            <Route path="/logbook/:uid/:eid" exact>
-              <IndividualEntry/>
-            </Route>
-            <Route path="/new-entry" exact>
-              <NewEntry />
-            </Route>
-            <Redirect to="/logbook" />
-          </Switch>
+            <Switch>
+              <Route path="/logbook" exact>
+                <UserLanding />
+              </Route>
+              <Route path="/logbook/:uid" exact>
+                <LogBook />
+              </Route>
+              <Route path="/logbook/:uid/:eid" exact>
+                <IndividualEntry />
+              </Route>
+              <Route path="/new-entry" exact>
+                <NewEntry />
+              </Route>
+              <Redirect to="/logbook" />
+            </Switch>
           </AnimatePresence>
         </main>
       </>
@@ -76,7 +80,17 @@ function App() {
         logout: logout,
       }}
     >
-      <Router>{routes}</Router>
+      <Router>
+        <Suspense
+          fallback={
+            <div className="center">
+              <LoadingSpinner />
+            </div>
+          }
+        >
+          {routes}
+        </Suspense>
+      </Router>
     </AuthenticationContext.Provider>
   );
 }
